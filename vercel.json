@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "pnpm --dir big-speech-mvp install --frozen-lockfile",
+  "buildCommand": "pnpm --dir big-speech-mvp build",
+  "outputDirectory": "big-speech-mvp/.next"
+}

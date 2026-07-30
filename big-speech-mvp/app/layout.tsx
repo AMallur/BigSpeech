@@ -43,6 +43,17 @@ export const metadata: Metadata = {
       "Tell us who it's for and share a few memories. Big Speech writes a personalized speech in seconds.",
   },
   generator: 'v0.app',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' }],
+  },
+}
+
+const websiteIdentity = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Big Speech',
+  alternateName: 'BigSpeech',
+  url: 'https://bigspeech.vercel.app/',
 }
 
 export const viewport: Viewport = {
@@ -60,6 +71,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`light ${inter.variable} ${playfair.variable}`}>
       <body className="bg-background font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteIdentity) }}
+        />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -16,9 +16,32 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
+  metadataBase: new URL('https://bigspeech.vercel.app'),
+  title: {
+    default: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
+    template: '%s | Big Speech',
+  },
   description:
-    'Tell us who it&apos;s for and share a few memories. Big Speech writes a personalized best man, maid of honor, eulogy, retirement, or graduation speech in seconds.',
+    "Tell us who it's for and share a few memories. Big Speech writes a personalized best man, maid of honor, eulogy, retirement, or graduation speech in seconds.",
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Big Speech',
+    title: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
+    description:
+      "Tell us who it's for and share a few memories. Big Speech writes a personalized speech in seconds.",
+  },
   generator: 'v0.app',
 }
 

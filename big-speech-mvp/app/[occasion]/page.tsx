@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
@@ -7,6 +8,33 @@ import { IntakeForm } from '@/components/intake-form'
 
 export function generateStaticParams() {
   return OCCASIONS.map((o) => ({ occasion: o.id }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ occasion: string }>
+}): Promise<Metadata> {
+  const { occasion: occasionId } = await params
+  const occasion = getOccasion(occasionId)
+
+  if (!occasion) {
+    return {}
+  }
+
+  return {
+    title: occasion.title,
+    description: `${occasion.blurb} Create a personalized ${occasion.title.toLowerCase()} with Big Speech.`,
+    alternates: {
+      canonical: `/${occasion.id}`,
+    },
+    openGraph: {
+      type: 'website',
+      url: `/${occasion.id}`,
+      title: `${occasion.title} | Big Speech`,
+      description: occasion.blurb,
+    },
+  }
 }
 
 export default async function OccasionPage({

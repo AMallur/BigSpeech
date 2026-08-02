@@ -1,6 +1,13 @@
 import { Suspense } from 'react'
 import { SiteHeader } from '@/components/site-header'
 import { ResultView } from '@/components/result-view'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Your Speech',
+  alternates: { canonical: '/result' },
+  robots: { index: false, follow: false, nocache: true },
+}
 
 export default function ResultPage() {
   return (

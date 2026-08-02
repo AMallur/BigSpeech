@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_NAME, SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({
@@ -16,13 +17,22 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bigspeech.vercel.app'),
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
+    default: DEFAULT_TITLE,
     template: '%s | Big Speech',
   },
-  description:
-    "Tell us who it's for and share a few memories. Big Speech writes a personalized best man, maid of honor, eulogy, retirement, or graduation speech in seconds.",
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    'AI speech writer',
+    'speech generator',
+    'best man speech',
+    'maid of honor speech',
+    'eulogy writer',
+    'retirement speech',
+    'graduation speech',
+  ],
   alternates: {
     canonical: '/',
   },
@@ -37,12 +47,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: '/',
-    siteName: 'Big Speech',
-    title: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
-    description:
-      "Tell us who it's for and share a few memories. Big Speech writes a personalized speech in seconds.",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Big Speech personalized speech writer',
+      },
+    ],
   },
-  generator: 'v0.app',
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: ['/opengraph-image'],
+  },
+  category: 'writing',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' },
@@ -57,10 +80,26 @@ export const metadata: Metadata = {
 
 const websiteIdentity = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Big Speech',
-  alternateName: 'BigSpeech',
-  url: 'https://bigspeech.vercel.app/',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      alternateName: 'BigSpeech',
+      url: `${SITE_URL}/`,
+      description: DEFAULT_DESCRIPTION,
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'WebApplication',
+      '@id': `${SITE_URL}/#application`,
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+      applicationCategory: 'LifestyleApplication',
+      operatingSystem: 'Any',
+      description: DEFAULT_DESCRIPTION,
+    },
+  ],
 }
 
 export const viewport: Viewport = {

@@ -1,15 +1,14 @@
 import type { MetadataRoute } from 'next'
-
-const siteUrl = 'https://bigspeech.vercel.app'
+import { SITE_URL } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
+      disallow: ['/api/', '/result', '/success'],
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   }
 }

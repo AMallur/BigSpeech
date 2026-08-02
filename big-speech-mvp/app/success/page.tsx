@@ -1,6 +1,13 @@
 import { Suspense } from 'react'
 import { SiteHeader } from '@/components/site-header'
 import { SuccessView } from '@/components/success-view'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Payment Confirmation',
+  alternates: { canonical: '/success' },
+  robots: { index: false, follow: false, nocache: true },
+}
 
 export default function SuccessPage() {
   return (

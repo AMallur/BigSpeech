@@ -3,5 +3,19 @@
   "framework": "nextjs",
   "installCommand": "npm install && npm --prefix big-speech-mvp install",
   "buildCommand": "npm --prefix big-speech-mvp run build",
-  "outputDirectory": "big-speech-mvp/.next"
+  "outputDirectory": "big-speech-mvp/.next",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "bigspeech-ashish123.vercel.app" }],
+      "destination": "https://bigspeech.vercel.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "bigspeech-git-main-ashish123.vercel.app" }],
+      "destination": "https://bigspeech.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
 }

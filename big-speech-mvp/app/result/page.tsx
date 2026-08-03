@@ -1,6 +1,16 @@
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/site-header'
 import { ResultView } from '@/components/result-view'
+
+export const metadata: Metadata = {
+  title: 'Your speech',
+  description: 'Your personalized speech from Big Speech.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function ResultPage() {
   return (

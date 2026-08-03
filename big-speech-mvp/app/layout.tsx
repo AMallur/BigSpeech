@@ -42,6 +42,12 @@ export const metadata: Metadata = {
     description:
       "Tell us who it's for and share a few memories. Big Speech writes a personalized speech in seconds.",
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Big Speech — A heartfelt speech, ready to read in 20 seconds',
+    description:
+      "Tell us who it's for and share a few memories. Big Speech writes a personalized speech in seconds.",
+  },
   generator: 'v0.app',
   icons: {
     icon: [
